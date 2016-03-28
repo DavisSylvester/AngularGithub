@@ -4,7 +4,8 @@
     angular
     .module('Angular.Github.App', 
     [
-        'ui.router'
+        'ui.router',
+        'TSG.GitHub'
     ]);
 })();  
 

@@ -7,19 +7,36 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <script src='node_modules/jquery/dist/jquery.min.js'></script>
+    <script src='node_modules/angular/angular.min.js'></script>
+    <script src='node_modules/angular-ui-router/release/angular-ui-router.js'></script>
+
     <!-- inject:css -->
+    <!-- endinject -->
+
+    <!-- angular:js -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/TSG.Github/app.js"></script>
+    <script src="assets/js/Core/Controllers/MainController.js"></script>
+    <script src="assets/js/TSG.Github/Directives/GithubList.js"></script>
+    <script src="assets/js/Core/Services/DeploymentConfigService.js"></script>
+    <script src="assets/js/TSG.Github/Services/GithubService.js"></script>
     <!-- endinject -->
 
     <!-- inject:js -->
     <!-- endinject -->
 </head>
 
-<body>
-    <h1>Project Geek Force Starter</h1>
+<body ng-controller="MainController as vm" style='padding: 10px;'>
+
+    <h3>Angular Github Sample App</h3>
+
+    <github-list list='vm.Model.Data.items' />
+
+
 </body>
 
-<script src='node_modules/jquery/jquery.min.js'></script>
-<script src='node_modules/angular/angular.min.js'></script>
-<script src='node_modules/angular-ui-router/release/angular-ui-router.js'></script>
+
 
 </html>

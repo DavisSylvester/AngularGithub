@@ -1,0 +1,63 @@
+<h4>Search GitHub</h4>
+<div class='row'>
+    <div class='col-lg-7'>  
+        
+        
+    </div>
+</div>
+<div class='row'>
+    <div class='col-lg-6'>
+        <input type="text" class='form-control' name='search' ng-model='model.Search' ng-blur='SearchGitHub(model.Search)' style='margin-bottom: 10px;'
+            placeholder='Enter a Keyword and press Tab'/>
+    </div>
+</div>
+
+<div class='row'>
+    <div class='col-lg-6' ng-show='Show.RepoListItem'>
+<span style='color: red'><strong><i> Click the Name of the Repo to see the Details and Commits</i></strong></span> 
+        <div class='row'>
+            <div class='col-lg-4'><strong>Name</strong></div>
+            <div class='col-lg-4'><strong>URL</strong></div>
+            <div class='col-lg-1'><strong>Language</strong></div>
+        </div>
+
+        <div class='row' style='padding-bottom: 6px;' ng-repeat='item in Model.Data'>
+            <div class='col-lg-4' ng-click='ShowRepoDetails(item.owner.login, item.name)'>{{item.name}}</div>
+            <div class='col-lg-4'>
+                <a href='{{item.homepage}} ' target='_blank '>{{item.homepage}}</a>
+            </div>
+            <div class='col-lg-1 '>{{item.language}}</div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class='col-lg-6'>
+        <div class='row' ng-show='Show.RepoDetail'>
+            <div class='row'>
+                <div class='col-lg-3'><strong>Name</strong></div>
+                <div class='col-lg-9'><strong>Description</strong></div>
+
+            </div>
+
+            <div class='row' style='margin-top: 2%;'>
+                <div class='col-lg-3'>{{SingleRepoDetail.name}}</div>
+                <div class='col-lg-9'>{{SingleRepoDetail.description}}</div>
+            </div>
+
+            <div class='row' ng-show='Show.RepoCommits'>
+                <div class='row' style='margin-top: 2%;'>
+                    <div class='col-lg-3'><strong>Author</strong></div>
+                    <div class='col-lg-9'><strong>Message</strong></div>
+                </div>
+                <div class='row' ng-repeat='item in Commits' style='padding-bottom: 4px;'>
+                    <div class='col-lg-3'>{{item.author.login}}</div>
+                    <div class='col-lg-9'>{{item.commit.message}}</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
